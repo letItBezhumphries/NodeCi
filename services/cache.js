@@ -4,9 +4,6 @@ const redis = require("redis");
 const keys = require("../config/keys");
 const client = redis.createClient(keys.redisUrl);
 client.connect();
-// // No more need to use promisify
-// //const util = require("util");
-// //client.get = util.promisify(client.get);
 
 // going to overwrite the Query.exec function that is defined on a Mongoose query and
 // figure out how to manipulate code to execute extra code
