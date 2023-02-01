@@ -25,7 +25,6 @@ async function login() {
 
   await this.setCookie({ name: "session", value: session });
   await this.setCookie({ name: "session.sig", value: sig });
-  //refresh the page to send cookies to the server
   await this.goto("http://localhost:3000/", { waitUntil: "domcontentloaded" });
 }
 
@@ -34,8 +33,6 @@ async function getContentsOf(selector) {
 }
 
 async function get(path) {
-  // need to pass 2nd argument to evaluate function which will
-  // in turn be passed to the function we pass as the first argument to evaluate
   return this.evaluate((_path) => {
     return fetch(_path, {
       method: "GET",
